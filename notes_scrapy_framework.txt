@@ -15,20 +15,25 @@ BASIC FILES IN SCRAPY PROJECT:
         6.3 spider2.py
         6.4 ...
 
-EXECUTE SCRAPY PROJECT
-    > scrapy crawl <spider_file.py/classSpider/name>
+COMMANDS
+    Start spider > scrapy crawl <spider_file.py/classSpider/name>
+    Save results into a file > scrapy crawl <spider_file.py/classSpider/name> -o <filename.<csv, json, xml>>
 
 ENABLE SCRAPY SHELL > Used to test xpath and css selectors
     > scrapy shell <url>
     > response.css('css_selector').extract() > returns list of elements
-
+    > response.xpath('xpath_selector').extract() > returns list of elements
 
 RESPONSE METHODS
     > response.css('css_selector').extract() > returns list of elements
     > response.css('css_selector').extract_first() > returns first element
     > response.css('css_selector').extract_first(default='default_value') > returns default value if no element found
-
+    > response.xpath('xpath_selector').extract() > returns list of elements
 
 PLUGIN TO GET THE CORRECT SELECTOR css
     > https://selectorgadget.com/ (chrome)
     > inspect from firefox (has an option to copy css selector)
+
+NOTATIONS FOR CRAWLERS
+    > You can iterate over all the class where the data is stored
+    

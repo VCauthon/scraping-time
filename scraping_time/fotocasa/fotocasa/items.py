@@ -8,6 +8,7 @@ import scrapy
 
 class FotocasaItem(scrapy.Item):
     # define the fields for your item here like:
-    url = scrapy.Field()
-    # price = scrapy.Field()
-    # description = scrapy.Field()
+    text = scrapy.Field()
+    author = scrapy.Field()
+    url_author = scrapy.Field()
+    tags = scrapy.Field()

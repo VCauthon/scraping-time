@@ -1,5 +1,6 @@
 import scrapy
 from os import path
+from ..items import FotocasaItem
 
 class FotoCasaSpider(scrapy.Spider):
     name = "fotocasa"
@@ -16,13 +17,28 @@ class FotoCasaSpider(scrapy.Spider):
         # url = response.css("title").extract()
         # url = response.css("article.re-CardPackMinimal a title").extract()
 
-        text = response.css('.text::text').extract()
-        author = response.css('.author::text').extract()
-        url_author = response.css('div.quote > span > a::attr(href)').extract()
-        # url_autor = response.urljoin(url_autor)
-        tags = response.css('.tag::text').extract()
+        # TODO: It doesn't charge all the data (javascript-time)
+        # TODO: Iterate for each class where you want to extract its data
+        # tittle = response.css(".re-CardTitle").xpath("string()").extract()
+        # description = response.css(".re-CardDescription-text::text").extract()
+        # price = response.css(".re-CardPrice::text").extract()
+        # basic_features = response.css(".re-CardFeatures-feature::text").extract()
+        # url = response.css("article.re-CardPackMinimal > a::attr(href)").extract()
+        # TODO: Only charge the first image you need to work with javascript
+        # img = response.css("article.re-CardPackMinimal > a > div > div > div > ul > li > img::attr(src)").extract()
 
-        yield {"text": text, "author": author, "url_autor": url_author, "tags": tags}
+        items = FotocasaItem()
+
+        # Goes throw every tag with the class quote
+        for quotes in response.css('div.quote'):
+
+            # Extracts the iterated quotes
+            items["text"] = quotes.css('.text::text').extract()
+            items["author"] = quotes.css('.author::text').extract()
+            items["url_author"] = quotes.css('div.quote > span > a::attr(href)').extract()
+            items["tags"] = quotes.css('.tag::text').extract()
+
+            yield items
         # yield {"text": text, "autor": autor, 'url_autor': url_autor}
 
 
