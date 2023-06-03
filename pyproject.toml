@@ -9,6 +9,7 @@ packages = [{include = "scraping_time"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 scrapy = "^2.9.0"
+bs4 = "^0.0.1"
 
 
 [build-system]

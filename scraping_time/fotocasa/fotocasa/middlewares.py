@@ -70,7 +70,7 @@ class FotocasaDownloaderMiddleware:
     @classmethod
     def from_crawler(cls, crawler):
         # This method is used by Scrapy to create your spiders.
-        s = cls(crawler.settings.getlist('USER_AGENTS'))
+        s = cls(crawler.settings.getlist('USER_AGENT'))
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
@@ -86,6 +86,8 @@ class FotocasaDownloaderMiddleware:
         #   installed downloader middleware will be called
 
         # Sets a random user agent from the list of user agents
+        # print("***********************************************")
+        # print(self.user_agents)
         request.headers['User-Agent'] = random.choice(self.user_agents)
         return None
 
