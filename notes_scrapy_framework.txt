@@ -1,4 +1,4 @@
-┐(シ)┌
+┐(シ)┌ 
 
 CREATE SCRAPY PROJECT
     > scrapy startproject <project_name>

@@ -33,10 +33,14 @@ class FotoCasaSpider(scrapy.Spider):
         for quotes in response.css('div.quote'):
 
             # Extracts the iterated quotes
-            items["text"] = quotes.css('.text::text').extract()
-            items["author"] = quotes.css('.author::text').extract()
-            items["url_author"] = quotes.css('div.quote > span > a::attr(href)').extract()
-            items["tags"] = quotes.css('.tag::text').extract()
+            items["text"] = quotes.css('.text::text').extract()[0]\
+                .replace('“', '')\
+                .replace('”', '')\
+                .replace("'", "")
+            items["author"] = quotes.css('.author::text').extract()[0]
+            items["url_author"] = quotes.css(
+                'div.quote > span > a::attr(href)').extract()[0]
+            items["tags"] = quotes.css('.tag::text').extract()[0]
 
             yield items
         # yield {"text": text, "autor": autor, 'url_autor': url_autor}

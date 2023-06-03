@@ -65,9 +65,9 @@ COOKIES_ENABLED = True
 #                  'Chrome/58.0.3029.110 Safari/537.3'"
 # }
 
-# LOG_STDOUT = True
-# LOG_ENABLED = False
-# LOG_LEVEL = 'INFO'
+# LOG_STDOUT = False
+# LOG_ENABLED = True
+# LOG_LEVEL = 'DEBUG'
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
@@ -89,9 +89,9 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    "fotocasa.pipelines.FotocasaPipeline": 300,
-# }
+ITEM_PIPELINES = {
+   "fotocasa.pipelines.FotocasaPipeline": 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

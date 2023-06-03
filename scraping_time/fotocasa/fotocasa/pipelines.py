@@ -5,9 +5,15 @@
 
 
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
+# from itemadapter import ItemAdapter
+
+import sys
+sys.path.append('/..')
+from db.crud import CRUD  # noqa: E402
 
 
 class FotocasaPipeline:
     def process_item(self, item, spider):
-        return item
+
+        # Insert the item in the DB
+        CRUD.insert('fotocasa_tb', item)
