@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "scraping-time"
+version = "0.1.0"
+description = ""
+authors = ["Victor Mas Montserrat <victormasmon@gmail.com>"]
+readme = "README.md"
+packages = [{include = "scraping_time"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+scrapy = "^2.9.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

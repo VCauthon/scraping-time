@@ -3,6 +3,9 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+import random
+from typing import List
+
 from scrapy import signals
 
 # useful for handling different item types with a single interface
@@ -61,10 +64,13 @@ class FotocasaDownloaderMiddleware:
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
 
+    def __init__(self, user_agents) -> None:
+        self.user_agents: List[str] = user_agents
+
     @classmethod
     def from_crawler(cls, crawler):
         # This method is used by Scrapy to create your spiders.
-        s = cls()
+        s = cls(crawler.settings.getlist('USER_AGENTS'))
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
@@ -78,6 +84,9 @@ class FotocasaDownloaderMiddleware:
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
+
+        # Sets a random user agent from the list of user agents
+        request.headers['User-Agent'] = random.choice(self.user_agents)
         return None
 
     def process_response(self, request, response, spider):
