@@ -1,0 +1,34 @@
+┐(シ)┌
+
+CREATE SCRAPY PROJECT
+    > scrapy startproject <project_name>
+
+BASIC FILES IN SCRAPY PROJECT:
+    1. scrapy.cfg > Project configuration file
+    2. items.py > Saved data in scrapy project
+    3. middlewares.py > Used to handle request and response
+    4. pipelines.py > Used to save data in database
+    5. settings.py > Used to configure project settings
+    6. spiders/ > Folder contains all the scripts to scrape data
+        6.1 __init__.py
+        6.2 spider1.py
+        6.3 spider2.py
+        6.4 ...
+
+EXECUTE SCRAPY PROJECT
+    > scrapy crawl <spider_file.py/classSpider/name>
+
+ENABLE SCRAPY SHELL > Used to test xpath and css selectors
+    > scrapy shell <url>
+    > response.css('css_selector').extract() > returns list of elements
+
+
+RESPONSE METHODS
+    > response.css('css_selector').extract() > returns list of elements
+    > response.css('css_selector').extract_first() > returns first element
+    > response.css('css_selector').extract_first(default='default_value') > returns default value if no element found
+
+
+PLUGIN TO GET THE CORRECT SELECTOR css
+    > https://selectorgadget.com/ (chrome)
+    > inspect from firefox (has an option to copy css selector)
