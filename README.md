@@ -1,4 +1,4 @@
-# ┐(シ)┌ scraping-time 
+# ┐(シ)┌ 
 
 ## Description
 This project is a collection of spiders built with Scrapy, a web scraping framework in Python. The main purpose of this project is self-learning and gaining hands-on experience with the Scrapy framework. The project explores various aspects of web scraping using Scrapy and serves as a playground for experimenting with different scenarios.
