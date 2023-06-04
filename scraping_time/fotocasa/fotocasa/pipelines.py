@@ -17,3 +17,4 @@ class FotocasaPipeline:
 
         # Insert the item in the DB
         CRUD.insert('fotocasa_tb', item)
+        return item
