@@ -10,6 +10,7 @@ packages = [{include = "scraping_time"}]
 python = "^3.10"
 scrapy = "^2.9.0"
 bs4 = "^0.0.1"
+scrapy-splash = "^0.9.0"
 
 
 [build-system]
