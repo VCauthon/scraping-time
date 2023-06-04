@@ -29,6 +29,7 @@ RESPONSE METHODS
     > response.css('css_selector').extract_first() > returns first element
     > response.css('css_selector').extract_first(default='default_value') > returns default value if no element found
     > response.xpath('xpath_selector').extract() > returns list of elements
+    > response.follow('link', callback=self.parse) > executes again the parse method with the new url
 
 PLUGIN TO GET THE CORRECT SELECTOR css
     > https://selectorgadget.com/ (chrome)
@@ -36,4 +37,15 @@ PLUGIN TO GET THE CORRECT SELECTOR css
 
 NOTATIONS FOR CRAWLERS
     > You can iterate over all the class where the data is stored
+    > You can see what are seeing scrapy with from scrapy.utils import open_in_browser > open_in_browser(response)
+    > If you want to log in with scraping do the following:
+        > Open chrome and the Network tab from dev window
+        > Log in and check the request that is sent
+        > Copy the request as form (FORM_DATA: username, password, csrf_token)
+        > Changes the spider to start with the logging in request
+        > Retrieve the token tag
+        > Use the FromRequest from scrapy.html to create the request
+        > FromRequests.from_response(response, formdata={'csrf_token: '', username: '', password: ''}, callback=self.start_scraping)
+        > Create the start_scraping method to start scraping the data (it will be like the "parse" function)
+        ! SRC: https://www.youtube.com/watch?v=I_vAGDZeg5Q&list=PLhTjy8cBISEqkN-5Ku_kXG4QW33sxQo0t&index=21
     
