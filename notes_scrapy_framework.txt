@@ -17,6 +17,7 @@ BASIC FILES IN SCRAPY PROJECT:
 
 COMMANDS
     Start spider > scrapy crawl <spider_file.py/classSpider/name>
+    Create an spider > scrapy genspider <spider_name> <url>
     Save results into a file > scrapy crawl <spider_file.py/classSpider/name> -o <filename.<csv, json, xml>>
 
 ENABLE SCRAPY SHELL > Used to test xpath and css selectors
@@ -48,4 +49,9 @@ NOTATIONS FOR CRAWLERS
         > FromRequests.from_response(response, formdata={'csrf_token: '', username: '', password: ''}, callback=self.start_scraping)
         > Create the start_scraping method to start scraping the data (it will be like the "parse" function)
         ! SRC: https://www.youtube.com/watch?v=I_vAGDZeg5Q&list=PLhTjy8cBISEqkN-5Ku_kXG4QW33sxQo0t&index=21
-    
+    > User agent
+        > You can know your own user-agent by typing in google for "what is my user agent"
+        > You can set the same user-agent as google by using the google agent > googlebot user agent
+        > you can use scrapy-user-agent to set the user agent in the settings.py file (https://pypi.org/project/scrapy-user-agents/)
+    > Proxies
+        > scrapy-proxies-pool (https://pypi.org/project/scrapy-proxies-pool/)
