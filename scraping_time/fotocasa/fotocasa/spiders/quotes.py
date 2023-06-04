@@ -1,6 +1,6 @@
 import scrapy
 import time
-from ..items import FotocasaItem
+from ..items import QuotesItems
 
 class QuotesSpider(scrapy.Spider):
     name = "quotes"
@@ -9,7 +9,7 @@ class QuotesSpider(scrapy.Spider):
 
     def parse(self, response):
 
-        items = FotocasaItem()
+        items = QuotesItems()
 
         # Goes throw every tag with the class quote
         for quotes in response.css('div.quote'):
